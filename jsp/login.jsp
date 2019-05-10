@@ -1,7 +1,6 @@
 <html>
 
 <%@ page import="java.sql.*"%>
-
 <%
 String username = request.getParameter("username");
 String password = request.getParameter("password");
@@ -13,17 +12,14 @@ try {
     String query = "select * from users where acno ='"+username+"' and password='"+password+"'";
 
     ResultSet rs = st.executeQuery(query);
+    String query2 = "select * from accounts where acno ='"+username+"'";
+    ResultSet rs2 = st2.executeQuery(query2);
     if (rs.next()) {
-        String query2 = "select * from accounts where acno ='"+username+"'";
-        ResultSet rs2 = st2.executeQuery(query2);
         int admin = 0;
         if (rs.getInt(3) == admin) {
             session.setAttribute("username",username);
             session.setAttribute("role",admin);
-            if (rs2.next()) {
-                session.setAttribute("name",rs2.getString(2));
-                response.sendRedirect("admin.jsp");
-            }
+            response.sendRedirect("http://localhost:8080/BankWebProject/jsp/admin.jsp");
 
         }else{
             if (rs.getInt(4) == 0) {
@@ -31,10 +27,12 @@ try {
             }else{
                 session.setAttribute("username",username);
                 session.setAttribute("role",1);
-                session.setAttribute("name",rs2.getString(2));
-                //response.sendRedirect("userPage.jsp");
+                response.sendRedirect("http://localhost:8080/BankWebProject/jsp/userInfo.jsp");
             }
         }
+    }else{
+        out.println("Table Empty!!");
+
     }
 } catch(Exception e) {
     out.println(e.toString());

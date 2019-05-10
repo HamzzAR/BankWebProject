@@ -1,0 +1,31 @@
+<html>
+
+    <script>
+
+    function ok(){
+        var pass = document.getElementById("pass").value;
+        var pass2 = document.getElementById("pass2").value;
+        if (pass == pass2) {
+            document.getElementById("frm").submit();
+        }else {
+            alert("no");
+        }
+    }
+
+    </script>
+
+    <center><h1>Create your Password</h1></center><br><br>
+
+    <form id="frm" action="http://localhost:8080/BankWebProject/jsp/createUser.jsp"  method="post">
+        New Password<br>
+        <input id="pass" type="password" name="pass"><br><br>
+        Enter Password Again<br>
+        <input id="pass2" type="password" name="pass2"><br><br>
+        <input type="button" onclick="ok()" value="Save">
+
+    </form>
+
+
+
+
+</html>
