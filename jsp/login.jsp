@@ -1,6 +1,7 @@
 <html>
 
 <%@ page import="java.sql.*"%>
+
 <%
 String username = request.getParameter("username");
 String password = request.getParameter("password");
@@ -31,8 +32,7 @@ try {
             }
         }
     }else{
-        out.println("Table Empty!!");
-
+        response.sendRedirect("http://localhost:8080/BankWebProject/html/htmlLogin.jsp");
     }
 } catch(Exception e) {
     out.println(e.toString());
@@ -40,5 +40,15 @@ try {
 
     }
 %>
+
+<style>
+.alert {
+  padding: 20px;
+  background-color: green;
+  color: white;
+  margin-top: 80px;
+  width: 30%;
+}
+</style>
 
 </html>

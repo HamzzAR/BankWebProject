@@ -2,9 +2,13 @@
 
 <%@ page import="java.sql.*"%>
 
-<span style="font-size:40; margin-right:40">Account Information for <%= session.getAttribute("username") %> </span>
-<a href="http://localhost:8080/BankWebProject/html/index.html"> <input type="button" onclick="deleteSess()" style="font-size:30"value="Log out"><a><br><br>
-Account No: <%= session.getAttribute("username") %>
+<div class='split left'>
+<div class="title">
+<center>
+<span class="title">Account Information for <%= session.getAttribute("username") %> </span>
+<a href="http://localhost:8080/BankWebProject/html/index.html"> <input type="button" class="logBtn" onclick="deleteSess()" value="Log out"><a><br><br>
+</center>
+</div>
 <%
 try {
     Class.forName("com.mysql.cj.jdbc.Driver"); //load the driver
@@ -17,16 +21,41 @@ try {
     ResultSet rs = st.executeQuery(query);
     ResultSet rs2 = st2.executeQuery(query2);
     if (rs.next()) {
-        out.println("<br>Name: "+rs.getString(2));
-        out.println("<br>Address: "+rs.getString(3)+"<br><br>");
 
-        out.println("<input type='button' id='deposit' onClick='deposit()' value='Deposit'>");
-        out.println("<input type='button' id='withdraw' onClick='withdraw()' value='Withdraw'>");
+        out.println("<center>");
+        out.println("<table border='1' class='table2'>");
+          out.println("<colgroup>");
+            out.println("<col span='2' style='background-color:grey'>");
+          out.println("</colgroup>");
+          out.println("<tr>");
+            out.println("<th>Account No</th>");
+            out.println("<th>"+session.getAttribute("username")+"</td>");
+          out.println("</tr>");
 
-        out.println("<br><br><h2>Account Transactions<h2>");
+          out.println("<tr>");
+            out.println("<th>Name</th>");
+            out.println("<th>"+rs.getString(2)+"</td>");
+          out.println("</tr>");
 
-        out.println("<table border='1'>");
-        out.println("<tr>");
+          out.println("<tr>");
+            out.println("<th>Address</th>");
+            out.println("<th>"+rs.getString(3)+"</td>");
+          out.println("</tr>");
+
+        out.println("</table>");
+        out.println("</center>");
+
+        out.println("<br><br><center>");
+        out.println("<input type='button' class='open-button2' id='deposit' onClick='deposit()' value='Deposit'>");
+        out.println("<input type='button' class='open-button' id='withdraw' onClick='withdraw()' value='Withdraw'>");
+        out.println("</center>");
+        out.println("</div>");
+
+        out.println("<div class='split right'>");
+        out.println("<br><br><center><h2 style='color:white'>Account Transactions<h2></center>");
+
+        out.println("<table border='1' class='table1'>");
+        out.println("<tr class='header'>");
         out.println("<td>Serial No</td> <td>Account No</td> <td>Amount</td> <td>Transaction Type</td> <td>Date</td>");
         out.println("</tr>");
         int sNo = 1;
@@ -49,8 +78,11 @@ try {
             sNo++;
         }
 
+        out.println("<tr><h3 style='color: white; margin-left:20px;'>Current Balance: "+bal+"</h3></td>");
         out.println("</table>");
-        out.println("<br>Current Balance: "+bal);
+
+
+        out.println("</div>");
 
     }
 
@@ -63,10 +95,12 @@ try {
 function deposit(){
     var amount = prompt("How much would you like to deposit?", "100");
     window.open("http://localhost:8080/BankWebProject/jsp/doTransaction.jsp?t=d&amount="+amount);
+    window.close();
 }
 function withdraw(){
     var amount = prompt("How much would you like to withdraw?", "100");
     window.open("http://localhost:8080/BankWebProject/jsp/doTransaction.jsp?t=w&amount="+amount);
+    window.close();
 }
 
 function deleteSess(){
@@ -75,5 +109,107 @@ function deleteSess(){
 }
 
 </script>
+
+<style>
+.open-button {
+  background-color: red;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  width: 125px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+
+}
+.logBtn {
+  background-color: red;
+  color: white;
+  padding: 12px 5px;
+  float: right;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  width: 100px;
+  margin: 4px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+
+}
+.open-button2 {
+  background-color: green;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  width: 125px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.table1 {
+ border-collapse: collapse;
+ border-spacing: 0;
+ width: 90%;
+ color: white;
+ border: 1px solid #ddd;
+ margin-left: 20px;
+ box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+}
+
+.left {
+  left: 0;
+  background-color: #90A4AE;
+}
+
+.right {
+  right: 0;
+  background-color: #455A64;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+
+}
+
+.right:hover {
+  box-shadow: 0 24px 26px 0 rgba(0,0,0,0.7);
+}
+
+.table2{
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  height: 30%;
+  width: 70%;
+  color: white;
+  margin-top: 65px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.header{
+    font-size: 18px;
+    font-weight: bold;
+    color: orange;
+    font-family:sans-serif;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.title{
+    padding-top: 20px;
+    font-size: 25px;
+    font-family:sans-serif;
+}
+
+</style>
 
 </html>

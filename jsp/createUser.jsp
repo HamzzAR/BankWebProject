@@ -13,8 +13,8 @@
         try {
             String query = "insert into users values('" + acno+ "','" + password + "',"+1+","+1+")";
             st.executeUpdate(query);
-            out.println("User Successfully created");
-            response.sendRedirect("http://localhost:8080/BankWebProject/html/login.html");
+            //out.println("User Successfully created");
+            response.sendRedirect("http://localhost:8080/BankWebProject/jsp/deleteSession.jsp");
         } catch(Exception e) {
             e.printStackTrace();
         }

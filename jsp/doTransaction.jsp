@@ -28,7 +28,8 @@ try {
 } catch(Exception e) {
     out.println(e.toString());
 }
-
-
-
 %>
+
+<script>
+window.close();
+</script>
