@@ -1,6 +1,6 @@
 # BankWebProject
 
-                  **Instructions**
+                  #Instructions
 
 - Run indexMain.html which will redirect you to index.jsp which is the start page.
   If it doesn't open, make sure to unblock **popups** for that window
