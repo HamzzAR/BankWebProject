@@ -4,8 +4,8 @@
 <center><h1 id="titleH1">QA Lets get started</h1></center>
 <center>
 <div style="max-width: 600px">
-<button id="logBtn" class="open-button" style="position: absolute; top:700px; left: 567px;" onclick="openForm()">Login</button>
-<button id="accBtn" class="open-button" style="position: absolute; top:700px; left: 721px;" onclick="openForm2()">Create Account</button>
+<button id="logBtn" class="open-button" onclick="openForm()">Login</button>
+<button id="accBtn" class="open-button" onclick="openForm2()">Create Account</button>
 </div>
 </center>
 
@@ -35,7 +35,7 @@
     <input type="text" placeholder="Enter Address" name="address" required>
 
     <pre style="font:bold; font-size:18">Gender     Account Type</pre>
-    <input type="radio" name="gender" value="m"> Male
+    <input type="radio" name="gender" value="m" required> Male
     <input  style="margin-left:58px" type="radio" name="account" value="c"> Current<br>
     <br><input type="radio" name="gender" value="f"> Female
     <input style="margin-left:39px" type="radio" name="account" value="s"> Saving <br><br><br>
@@ -111,11 +111,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 /* The popup form - hidden by default */
 .form-popup {
   display: none;
-  position: fixed;
-  bottom: 90;
-  right: 567px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
+  float:right;
+  width: 50%;
+  /* z-index: 9; */
 }
 
 /* Add styles to the form container */
