@@ -1,9 +1,9 @@
 <html>
 <body>
 <br>
-<center><h1 id="titleH1">QA Lets get started</h1></center>
+<center><h1 id="titleH1">I HATE YOU THE WHOLE UNIVERSE</h1></center>
 <center>
-<div style="max-width: 600px">
+<div>
 <button id="logBtn" class="open-button" onclick="openForm()">Login</button>
 <button id="accBtn" class="open-button" onclick="openForm2()">Create Account</button>
 </div>
@@ -105,6 +105,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   border: none;
   cursor: pointer;
   opacity: 0.8;
+  float: left;
   width: 151px;
 }
 
@@ -112,7 +113,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .form-popup {
   display: none;
   float:right;
-  width: 60.5%;
+  width: 100%;
   /* z-index: 9; */
 }
 
