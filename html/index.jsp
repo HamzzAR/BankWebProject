@@ -112,7 +112,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .form-popup {
   display: none;
   float:right;
-  width: 50%;
+  width: 60.5%;
   /* z-index: 9; */
 }
 
