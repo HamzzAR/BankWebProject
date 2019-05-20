@@ -3,6 +3,7 @@
                   **Instructions**
 
 - Run indexMain.html which will redirect you to index.jsp which is the start page.
+  If it doesn't open, make sure to unblock **popups** for that window
 - to access root account, add a user to **users** table manually with role as **0** 
   and acno as **'[accountType][gender]000'** then you can login to the admin account 
   with those details.
