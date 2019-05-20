@@ -1,7 +1,7 @@
 <html>
-<body>
+<body style="background-color:#546E7A">
 <br>
-<center><h1 id="titleH1">I HATE YOU THE WHOLE UNIVERSE</h1></center>
+<center><h1 id="titleH1" style="color:white">THE SAHFEEQ</h1></center>
 <center>
 <div>
 <button id="logBtn" class="open-button" onclick="openForm()">Login</button>
@@ -81,15 +81,22 @@ function closeForm() {
   document.getElementById("inForm").style.display = "none";
   document.getElementById("createForm").style.display = "none";
 }
+    var colors = ["546E7A","00897B","7E57C2","EF5350","26C6DA","CDDC39",];
+
+    var c = colors.length;
     setInterval(
     function () {
-      var randomColor = Math.floor(Math.random()*16777215).toString(16);
-      var randomColor2 = Math.floor(Math.random()*16777215).toString(16);
-      document.getElementById('logBtn').style.backgroundColor = "#"+randomColor2;
-      document.getElementById('accBtn').style.backgroundColor = "#"+randomColor2;
-      document.getElementById('titleH1').style.color = "#"+randomColor2;
-      document.body.style.backgroundColor = "#"+randomColor;
-  },1500);
+      // var randomColor = Math.floor(Math.random()*16777215).toString(16);
+      // var randomColor2 = Math.floor(Math.random()*16777215).toString(16);
+      if (c < 0) {
+          c = colors.length;
+      }
+      // document.getElementById('logBtn').style.backgroundColor = "#"+randomColor2;
+      // document.getElementById('accBtn').style.backgroundColor = "#"+randomColor2;
+      // document.getElementById('titleH1').style.color = "#"+randomColor2;
+      document.body.style.backgroundColor = "#"+colors[c];
+      c = c - 1;
+  },1570);
 
 </script>
 
@@ -99,8 +106,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
-  background-color: #555;
-  color: white;
+  background-color: white;
+  color: black;
   padding: 16px 20px;
   border: none;
   cursor: pointer;
