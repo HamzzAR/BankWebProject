@@ -9,8 +9,6 @@
 </div>
 </center>
 
-
-
 <div class="form-popup" id="inForm">
   <form action="http://localhost:8080/BankWebProject/jsp/login.jsp" class="form-container">
     <center><h1>Login</h1></center>
@@ -27,14 +25,14 @@
 </div>
 
 <div class="form-popup" id="createForm">
-  <form action="http://localhost:8080/BankWebProject/jsp/createAccount.jsp" class="form-container">
+  <form action="http://localhost:8080/BankWebProject/jsp/createAccount.jsp" method="post" class="form-container">
     <center><h1>Create New Account</h1></center>
 
     <label for="name"><b>Name</b></label>
     <input type="text" placeholder="Enter Name" name="name" required>
 
-    <label for="add"><b>Address</b></label>
-    <input type="text" placeholder="Enter Address" name="add" required>
+    <label for="address"><b>Address</b></label>
+    <input type="text" placeholder="Enter Address" name="address" required>
 
     <pre style="font:bold; font-size:18">Gender     Account Type</pre>
     <input type="radio" name="gender" value="m"> Male
@@ -46,6 +44,28 @@
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
+
+<center>
+<div class="alert" id="msg" style="display: none">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <strong>Erro!! </strong> Username or Password incorrect.
+</div>
+</center>
+
+<%
+try {
+    String operation = request.getParameter("do");
+    if (operation.equals("t")) {
+        out.println("<script>");
+        out.println("document.getElementById('msg').style.display ='block'");
+        out.println("</script>");
+        operation = "f";
+    }
+} catch(Exception e) {
+
+}
+
+%>
 
 <script>
 function openForm() {
@@ -103,7 +123,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
   width: 300px;
   padding: 10px;
   background-color: white;
-
 }
 
 /* Full-width input fields */
@@ -142,10 +161,16 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+
+.alert {
+  padding: 20px;
+  background-color: red;
+  color: white;
+  margin-top: 80px;
+  width: 30%;
+}
 </style>
 
 
-<!-- <center><a href="http://localhost:8080/BankWebProject/html/login.html">Login</a></center><br>
-<center><a href="http://localhost:8080/BankWebProject/html/createAccount.html">Create Account</a></center> -->
 </body>
 </html>

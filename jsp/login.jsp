@@ -32,7 +32,7 @@ try {
             }
         }
     }else{
-        response.sendRedirect("http://localhost:8080/BankWebProject/html/htmlLogin.jsp");
+        response.sendRedirect("http://localhost:8080/BankWebProject/html/index.jsp?do=t");
     }
 } catch(Exception e) {
     out.println(e.toString());

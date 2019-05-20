@@ -11,6 +11,7 @@ try {
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8889/webBank","root","012345");
     Statement st = con.createStatement();
     if (operation.equals("1")) { //this is for edit
+
         String name = request.getParameter("name");
         String address = request.getParameter("address");
 
@@ -19,6 +20,7 @@ try {
             if (st.executeUpdate(updateRow) > 0) {
                 response.sendRedirect("http://localhost:8080/BankWebProject/jsp/admin.jsp?operation=n");
             }else{
+                out.println("Something went Wrong!!!");
             }
         }
     }else if (operation.equals("2")) { //this is for block
@@ -48,7 +50,7 @@ try {
         }
     }
 }catch(Exception e){
-    e.printStackTrace();
+    out.println(e.toString());
 }
 
 %>
