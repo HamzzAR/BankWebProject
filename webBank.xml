@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.8.3
+- https://www.phpmyadmin.net
+-
+- Host: localhost:8889
+- Generation Time: May 20, 2019 at 10:20 AM
+- Server version: 5.7.23
+- PHP Version: 7.2.8
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="webBank" collation="utf8_general_ci" charset="utf8">
+            <pma:table name="accounts">
+                CREATE TABLE `accounts` (
+                  `acno` char(5) NOT NULL,
+                  `name` char(16) NOT NULL,
+                  `address` char(40) NOT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="transactions">
+                CREATE TABLE `transactions` (
+                  `acno` char(5) NOT NULL,
+                  `amount` int(6) NOT NULL,
+                  `type` char(1) NOT NULL,
+                  `date` date NOT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="users">
+                CREATE TABLE `users` (
+                  `acno` char(5) NOT NULL,
+                  `password` char(20) NOT NULL,
+                  `role` int(1) NOT NULL,
+                  `active` int(1) NOT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'webBank'
+    -->
+    <database name="webBank">
+        <!-- Table accounts -->
+        <table name="accounts">
+            <column name="acno">CM001</column>
+            <column name="name">Hamza Ar</column>
+            <column name="address">2 the road</column>
+        </table>
+        <!-- Table transactions -->
+        <table name="transactions">
+            <column name="acno">CM001</column>
+            <column name="amount">100</column>
+            <column name="type">d</column>
+            <column name="date">2019-05-20</column>
+        </table>
+        <table name="transactions">
+            <column name="acno">CM001</column>
+            <column name="amount">1000</column>
+            <column name="type">d</column>
+            <column name="date">2019-05-20</column>
+        </table>
+        <!-- Table users -->
+        <table name="users">
+            <column name="acno">CM001</column>
+            <column name="password">1</column>
+            <column name="role">1</column>
+            <column name="active">1</column>
+        </table>
+        <table name="users">
+            <column name="acno">CM000</column>
+            <column name="password">root</column>
+            <column name="role">0</column>
+            <column name="active">1</column>
+        </table>
+    </database>
+</pma_xml_export>
