@@ -1,6 +1,4 @@
-# BankWebProject
-
-**Instructions**
+# BankWebProject **Instructions**
 
 - All the **Connection** code must be changed accordingly.
   This line of code must be changed "Connection con =                    DriverManager.getConnection("jdbc:mysql://localhost:8889/webBank","root","012345");"
